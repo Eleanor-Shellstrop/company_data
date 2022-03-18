@@ -1,6 +1,7 @@
 import unittest
 import pandas as pd
 
+### Test the money formatting function ###
 
 def test_money(new_var, old_var, text):
 	new_var = "{:,}".format(old_var)

@@ -8,6 +8,16 @@ This is a project for Code Louisville's Data Analysis Course 2.
 
 This repo demostrates my ability to work with data on an eningeering level and on an analyst level. 
 
+### Scenario
+
+You are recently hired to a company that hasn't been keeping all their records updated. You notice a CSV with all orders for the last 2 years, which is up to date. You also notice a CSV with contact people for the companies, but there are many more companies with orders than contacts on this file. Also, a database would be a better way to store these records.
+
+1. Create a program to scan all the CSVs in one folder.
+2. Update the tables to be clean and consistant.
+3. Extract the data to evaluate.
+4. Create visuals for the other departments.
+5. Make sure the program can update the data every time it's run when new info is added to the CSVs.
+
 **Spreadsheets**
 
 Data was generated through [Mockaroo](https://www.mockaroo.com).
@@ -16,25 +26,57 @@ Data was generated through [Mockaroo](https://www.mockaroo.com).
 
 ## Running the Program
 
-1. Download the repo or clone.
+### Main Program
+
+Python 3 is required to run this program. 
+
+The files to try the program are in the zip file `TRY_IT`.
+
+1. Download the repo or only the `TRY_IT` file, or clone.
 2. Save to location of your choice.
-3. In your command line, navigate to the root `company_data` folder.
-4. Recommended: Create a virtual environment to run the program.
-   * Run the requirements in your VE:
+3. Extract all files from the zip folder `TRY_IT`.
+4. In your command line, navigate to the root folder in the repo.
+5. Recommended: Create a virtual environment to run the program.
+6. Run the requirements:
 
-**CONDA:** 
+     **CONDA:** 
 
-`pip install -r requirements.txt`
+     `pip install -r requirements.txt`
 
-**Windows:**
+     **Windows:**
 
-`py -m pip install -r requirements.txt`
+     `py -m pip install -r requirements.txt`
 
-**Unix/macOS:**
+     **Unix/macOS:**
 
-`python -m pip install -r requirements.txt`
+     `python -m pip install -r requirements.txt`
 
-	* If you don't want to use Anaconda, make sure to enter the following commands in your command line once you've navigated to the repo folder:
-	`pip install notebook`
-	`pip install pandas`
+     If you do not have Anaconda installed, make sure to enter the following commands in your command line once you've navigated to the repo folder:
+       
+     	`pip install notebook`
+
+     	`pip install pandas`
 	
+7. From the root folder `TRY_IT`, navigate to the `python` folder.
+8. Run the `db_auto.py` file first with command:
+
+		`python db_auto.py`
+
+9. Once that file is complete, remaining in the `python` folder, run the next file:
+
+		`python sql_pandas.py`
+
+You should see other folders appear: `database`, `datasets`, and `tableau`. Your CSVs are now cleaned up tables in a database!
+
+### Running Tests
+
+You can also run unit tests to make sure your pandas methods and python function are working correctly.
+
+1. From your saved repo, navigate to `TRY_IT/test/python`.
+2. Run files one at a time:
+
+	`python test_pandas.py`
+
+	`python test_python.py`
+
+The `test_pandas.py` will log your unit test results with a timestamp in the `text/log.txt` file.
