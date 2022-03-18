@@ -80,3 +80,7 @@ You can also run unit tests to make sure your pandas methods and python function
 	`python test_python.py`
 
 The `test_pandas.py` will log your unit test results with a timestamp in the `text/log.txt` file.
+
+## Tableau
+
+My Tableau profile has visuals for these databases. [CLICK HERE](https://public.tableau.com/app/profile/anne.ensign/viz/Company_16474575907250/Dashboard-2YearReview_1) to visit my page.
