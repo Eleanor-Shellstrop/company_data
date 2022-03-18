@@ -6,7 +6,7 @@ from pathlib import Path
 
 #-----------------------------------------------
 #Change directory
-os.chdir('database')
+os.chdir('../database')
 
 
 #-----------------------------------------------

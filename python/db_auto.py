@@ -10,6 +10,7 @@ import pandas as pd
 dataset_dir = 'datasets'
 
 try:
+    os.chdir("../")
     mkdir = 'mkdir {0}'.format(dataset_dir)
     os.system(mkdir)
     print("Folder created successfully")
