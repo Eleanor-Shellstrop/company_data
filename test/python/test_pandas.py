@@ -15,7 +15,7 @@ class DFTests(unittest.TestCase):
 			logging.basicConfig(filename='../text/log.txt', encoding='utf-8', level=logging.DEBUG)
 			logging.debug(f"{datetime.now().strftime('%Y-%m-%d %H:%M')}: Entry Matching test")
 			df = pd.read_csv('../csv/test_orders.csv')
-			logging.info("these lines should match:")
+			logging.info("These lines should match:")
 			logging.info(df.iloc[[10]])
 			logging.info("11, Fivebridge, 606112, $2402888.26, 10/29/2020, true")
 			print("Entry match test passed")
