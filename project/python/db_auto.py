@@ -8,13 +8,15 @@ import pandas as pd
 csv_files = []
 df = {}
 
+
 def make_new_dir(dir_name):
     try:
         mkdir = 'mkdir {0}'.format(dir_name)
         os.system(mkdir)
-        print(f"Directory '{dir_name}' created successfully")
     except:
-        print(f"Directory '{dir_name}' already exists or there is another error")
+        print(
+            f"Directory '{dir_name}' already exists or there is another error"
+        )
 
 
 def make_dataset_dir():
@@ -23,7 +25,6 @@ def make_dataset_dir():
     os.chdir("../")
     make_new_dir(dataset_dir)
 
-    # Change directory
     os.chdir("csv")
 
     # Copy CSVs into datasets folder
@@ -40,7 +41,6 @@ def make_dataset_dir():
         print("There are no CSV files to copy")
 
 
-
 def make_df():
     """Make dataframes from pandas"""
     # Make list of CSVs
@@ -54,8 +54,6 @@ def make_df():
     for file in csv_files:
         try:
             df[file] = pd.read_csv(data_path+file)
-            print(f"{file} read successfully")
-            print(f"df[{file}].head()")
         except UnicodeDecodeError:
             df[file] = pd.read_csv(data_path+file, encoding="ISO-8859-1")
 
@@ -73,29 +71,59 @@ def make_db_dir():
 def make_db():
     for k in csv_files:    
         dataframe = df[k]
+
         # Clean table name
-        clean_table_name = k.lower().replace(" ", "_").replace(r"/""\\", "_")
-        clean_table_name = re.sub(r'[^a-zA-Z0-9_.]','', clean_table_name)    
+        clean_table_name = (
+            k.lower()
+            .replace(" ", "_")
+            .replace(r"/""\\", "_")
+        )
+
+        clean_table_name = re.sub(
+            r'[^a-zA-Z0-9_.]','', clean_table_name
+        )    
         
         #Clean table data
-        dataframe.columns = [x.lower().replace(" ", "_").replace(r"/""\\", "_").strip() for x in dataframe.columns]
-        dataframe.columns = dataframe.columns.str.replace('[^A-Za-z\s_.]+', '', regex=True)
+        dataframe.columns = [
+            x.lower()
+            .replace(" ", "_")
+            .replace(r"/""\\", "_")
+            .strip() 
+            for x in dataframe.columns
+        ]
+
+        dataframe.columns = (
+            dataframe.columns
+            .str.replace('[^A-Za-z\s_.]+', '', regex=True)
+        )
         
-        table_name = '{0}'.format(clean_table_name.split('.')[0])
+        table_name = '{0}'.format(
+            clean_table_name.split('.')[0]
+        )
         
         # Change data types
         new_dtypes = {
-        'object': 'varchar',
-        'float64': 'float',
-        'int64': 'int',
-        'datetime64': 'timestamp',
-        'timedelta64[ns]': 'varchar'
+            'object': 'varchar',
+            'float64': 'float',
+            'int64': 'int',
+            'datetime64': 'timestamp',
+            'timedelta64[ns]': 'varchar'
         }
         
-        col_strings = ", ".join("{} {}".format(n, d) for (n, d) in zip(dataframe.columns, dataframe.dtypes.replace(new_dtypes)))
+        col_strings = (
+            ", ".join(
+                f"{n} {d}"
+                for (n, d) in zip
+                (
+                    dataframe.columns,
+                    dataframe.dtypes.replace(new_dtypes)
+                )
+            )
+        )
+        db_name = 'company.db'
         
         # Write to db with SQLite
-        conn = sqlite3.connect('company.db')
+        conn = sqlite3.connect(db_name)
         c = conn.cursor()
 
         c.execute(f'''
@@ -103,10 +131,18 @@ def make_db():
         {col_strings}    
         )
         ''')
-        print('{0} was created successfully'.format(table_name))
+
+        print(
+            f"Table '{table_name}' in database '{db_name}' was created successfully"
+        )
         conn.commit()
         
-        dataframe.to_sql(table_name, conn, if_exists='replace', index=False)
+        dataframe.to_sql(
+            table_name, 
+            conn, 
+            if_exists='replace', 
+            index=False
+        )
         
         conn.close()
 
