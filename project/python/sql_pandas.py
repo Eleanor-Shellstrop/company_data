@@ -4,6 +4,7 @@ from query import all_clients, all_data
 
 
 def df_all_fields(data):
+    """DataFrame of all fields"""
     df_all = pd.DataFrame(
         data=data,
         columns=
@@ -24,6 +25,7 @@ def df_all_fields(data):
 
 
 def df_client_orders(data):
+    """DataFrame of orders and contacts"""
     df_orders = pd.DataFrame(
         data=data, 
         columns=
@@ -39,6 +41,7 @@ def df_client_orders(data):
 
 
 def csv_for_tableau(csv_name, var):
+    """Table joins to csv for Tableau"""
     filepath = Path('../tableau/'+ csv_name + '.csv')
     filepath.parent.mkdir(parents=True, exist_ok=True)  
     var.to_csv(filepath)
@@ -57,24 +60,15 @@ def clean_order_amt():
     return df_orders
 
 
+def money(new_var, old_var, text):
+    """Format money"""
+    new_var = "{:,}".format(old_var)
+    print(f"{text}: ${new_var}")
+
+
 def order_vars():
     """Variables to use if needed"""
     df_orders = clean_order_amt()
-
-    # DF totals of order by contacts
-    contact_totals = (df_orders.groupby(
-        ['company_name', 
-        'contact_first_name', 
-        'contact_last_name'
-        ])
-        .order_amount
-        .sum()
-        .reset_index())
-
-    # Format money
-    def money(new_var, old_var, text):
-        new_var = "{:,}".format(old_var)
-        print(f"{text}: ${new_var}")
         
     # USD total orders
     order_total = df_orders['order_amount'].sum()
