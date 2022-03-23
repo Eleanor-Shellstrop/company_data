@@ -87,6 +87,27 @@ The `test_pandas.py` will log your unit test results with a timestamp in the `te
 
 My Tableau profile has visuals for these databases. [CLICK HERE](https://public.tableau.com/app/profile/anne.ensign/viz/Company_16474575907250/Dashboard-2YearReview_1) to visit my page.
 
+## Code Louisville Requirements
+
+The following criteria have been met with this project:
+
+* Category 1: Python Programming Basics
+  * Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program.
+  * Create and call at least 3 functions or methods, at least one of which must return a value that is used somewhere else in your code.
+  * Implement a regular expression (regex)
+* Category 2: Utilize External Data
+  * Read data from an external file, such as text, JSON, CSV, etc, and use that data in your application.
+  * Connect to a database and read data using SQL.
+* Category 3: Data Display
+  * Implement a data visualization in Tableau
+* Category 4: Best Practices
+  * Implement a log that records errors, invalid inputs, or other important events and writes them to a text file.
+  * Create 3 or more unit tests for your application.
+  * The program should utilize a virtual environment and document library dependencies in a requirements.txt file.
+  * Source data should not be modified/changed - clean data should be stored separately.
+
+
+
 ## Acknowledgements
 
 While this code and project is my own, I found a lot of helpful information about structuring the process from [Nate from StrataScratch](https://github.com/Strata-Scratch/csv_to_db_automation).
