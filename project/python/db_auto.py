@@ -10,6 +10,7 @@ df = {}
 
 
 def make_new_dir(dir_name):
+    """Add new directory"""
     try:
         mkdir = 'mkdir {0}'.format(dir_name)
         os.system(mkdir)
@@ -24,7 +25,6 @@ def make_dataset_dir():
     dataset_dir = 'datasets'
     os.chdir("../")
     make_new_dir(dataset_dir)
-
     os.chdir("csv")
 
     # Copy CSVs into datasets folder
@@ -67,59 +67,70 @@ def make_db_dir():
     os.chdir(database_dir)
 
 
+def clean_tb_name(table):
+    """Clean table name"""
+    clean_tb_name = (
+        table.lower()
+        .replace(" ", "_")
+        .replace(r"/""\\", "_")
+    )
+    clean_tb_name = re.sub(
+        r'[^a-zA-Z0-9_.]','', clean_tb_name
+    )
+    return clean_tb_name  
+
+
+def clean_tb_cols(table, frame):
+    """Clean all entries in df"""
+    clean_table_name = clean_tb_name(table) 
+
+    frame.columns = [
+        table.lower()
+        .replace(" ", "_")
+        .replace(r"/""\\", "_")
+        .strip() 
+        for table in frame.columns
+    ]
+
+    frame.columns = (
+        frame.columns
+        .str.replace('[^A-Za-z\s_.]+', '', regex=True)
+    )
+    
+    tbl_name = '{0}'.format(
+        clean_table_name.split('.')[0]
+    )
+    
+    # Change data types
+    new_dtypes = {
+        'object': 'varchar',
+        'float64': 'float',
+        'int64': 'int',
+        'datetime64': 'timestamp',
+        'timedelta64[ns]': 'varchar'
+    }
+    
+    col_strings = (
+        ", ".join(
+            f"{n} {d}"
+            for (n, d) in zip
+            (
+                frame.columns,
+                frame.dtypes.replace(new_dtypes)
+            )
+        )
+    )
+    return tbl_name, col_strings
+
+
 # ETL to db
 def make_db():
+    """Turn each file into a table, make db"""
     for k in csv_files:    
         dataframe = df[k]
 
-        # Clean table name
-        clean_table_name = (
-            k.lower()
-            .replace(" ", "_")
-            .replace(r"/""\\", "_")
-        )
-
-        clean_table_name = re.sub(
-            r'[^a-zA-Z0-9_.]','', clean_table_name
-        )    
+        table_name, column_strings = clean_tb_cols(k, dataframe)
         
-        #Clean table data
-        dataframe.columns = [
-            x.lower()
-            .replace(" ", "_")
-            .replace(r"/""\\", "_")
-            .strip() 
-            for x in dataframe.columns
-        ]
-
-        dataframe.columns = (
-            dataframe.columns
-            .str.replace('[^A-Za-z\s_.]+', '', regex=True)
-        )
-        
-        table_name = '{0}'.format(
-            clean_table_name.split('.')[0]
-        )
-        
-        # Change data types
-        new_dtypes = {
-            'object': 'varchar',
-            'float64': 'float',
-            'int64': 'int',
-            'datetime64': 'timestamp',
-            'timedelta64[ns]': 'varchar'
-        }
-        
-        col_strings = (
-            ", ".join(
-                f"{n} {d}"
-                for (n, d) in zip
-                (
-                    dataframe.columns,
-                    dataframe.dtypes.replace(new_dtypes)
-                )
-            )
-        )
         db_name = 'company.db'
         
         # Write to db with SQLite
@@ -128,7 +139,7 @@ def make_db():
 
         c.execute(f'''
         CREATE TABLE IF NOT EXISTS {table_name} (
-        {col_strings}    
+        {column_strings}    
         )
         ''')
 
@@ -146,11 +157,13 @@ def make_db():
         
         conn.close()
 
+
 def main():
     make_dataset_dir()
     make_df()
     make_db_dir()
     make_db()
+
 
 if __name__ == '__main__':
     main()

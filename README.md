@@ -4,9 +4,7 @@ by Anne Ensign
 
 ## About
 
-This is a project for Code Louisville's Data Analysis Course 2. 
-
-This repo demostrates my ability to work with data on an eningeering level and on an analyst level. 
+This is a project for Code Louisville's Data Analysis Course 2.  
 
 ### Scenario
 
@@ -26,9 +24,11 @@ Data was generated through [Mockaroo](https://www.mockaroo.com).
 
 ## Running the Program
 
-### Main Program
+Python 3 is required to run this program. I wrote these scripts with version 3.9.6 installed, and at the time I'm writing this, any version 3.6 or below is EOL.
 
-Python 3 is required to run this program. 
+If you need to download or update Python, [click here](https://www.python.org).
+
+### Main Program
 
 The files to try the program are in the zip file `TRY_IT`.
 
@@ -84,3 +84,7 @@ The `test_pandas.py` will log your unit test results with a timestamp in the `te
 ## Tableau
 
 My Tableau profile has visuals for these databases. [CLICK HERE](https://public.tableau.com/app/profile/anne.ensign/viz/Company_16474575907250/Dashboard-2YearReview_1) to visit my page.
+
+## Acknowledgements
+
+While this code and project is my own, I found a lot of helpful information about structuring the process from (Nate from StrataScratch)[https://github.com/Strata-Scratch/csv_to_db_automation].
