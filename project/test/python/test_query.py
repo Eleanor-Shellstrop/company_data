@@ -14,14 +14,14 @@ c = conn.cursor()
 
 c.execute('''
 SELECT
-    company_orders.company_name,
+    test_orders.company_name,
     contact_first_name,
     contact_last_name,
     order_amount
 FROM
-    company_orders
-LEFT JOIN company_client_list ON company_client_list.company_name = company_orders.company_name
-WHERE company_client_list.contact_last_name IS NULL;
+    test_orders
+LEFT JOIN test_client_list ON test_client_list.company_name = test_orders.company_name
+WHERE test_client_list.contact_last_name IS NULL;
 ''')
 
 missing_contacts = []
@@ -42,13 +42,13 @@ c = conn.cursor()
 c.execute('''
 SELECT
     client_number,
-    company_orders.company_name,
+    test_orders.company_name,
     contact_first_name,
     contact_last_name,
     order_amount
 FROM
-    company_orders
-LEFT JOIN company_client_list ON company_client_list.company_name = company_orders.company_name;
+    test_orders
+LEFT JOIN test_client_list ON test_client_list.company_name = test_orders.company_name;
 ''')
 
 all_clients = []
@@ -70,7 +70,7 @@ c = conn.cursor()
 c.execute('''
 SELECT
     client_number,
-    company_orders.company_name,
+    test_orders.company_name,
     order_number,
     order_amount,
     order_date,
@@ -80,8 +80,8 @@ SELECT
     email,
     phone
 FROM
-    company_orders
-LEFT JOIN company_client_list ON company_client_list.company_name = company_orders.company_name;
+    test_orders
+LEFT JOIN test_client_list ON test_client_list.company_name = test_orders.company_name;
 ''')
 
 all_data = []
