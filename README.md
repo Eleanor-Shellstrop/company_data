@@ -53,18 +53,18 @@ The files to try the program are in the zip file `TRY_IT`.
 
      If you do not have Anaconda installed, make sure to enter the following commands in your command line once you've navigated to the repo folder:
        
-     	`pip install notebook`
+     	pip install notebook
 
-     	`pip install pandas`
+     	pip install pandas
 	
 7. From the root folder `TRY_IT`, navigate to the `python` folder.
 8. Run the `db_auto.py` file first with command:
 
-		`python db_auto.py`
+		python db_auto.py
 
 9. Once that file is complete, remaining in the `python` folder, run the next file:
 
-		`python sql_pandas.py`
+		python sql_pandas.py
 
 You should see other folders appear: `database`, `datasets`, and `tableau`. Your CSVs are now cleaned up tables in a database!
 
@@ -79,6 +79,8 @@ You can also run unit tests to make sure your pandas methods and python function
 
 	`python test_python.py`
 
+     `python test_sql.py`
+
 The `test_pandas.py` will log your unit test results with a timestamp in the `text/log.txt` file.
 
 ## Tableau
@@ -87,4 +89,4 @@ My Tableau profile has visuals for these databases. [CLICK HERE](https://public.
 
 ## Acknowledgements
 
-While this code and project is my own, I found a lot of helpful information about structuring the process from (Nate from StrataScratch)[https://github.com/Strata-Scratch/csv_to_db_automation].
+While this code and project is my own, I found a lot of helpful information about structuring the process from [Nate from StrataScratch](https://github.com/Strata-Scratch/csv_to_db_automation).
