@@ -28,7 +28,6 @@ missing_contacts = []
 
 for row in c.fetchall():
     missing_contacts.append(row)
-    print(row)
     
 conn.commit()
 conn.close()
@@ -56,7 +55,6 @@ all_clients = []
 
 for row in c.fetchall():
     all_clients.append(row)
-    print(row)
     
 conn.commit()
 conn.close()
@@ -90,7 +88,6 @@ all_data = []
 
 for row in c.fetchall():
     all_data.append(row)
-    print(row)
     
 conn.commit()
 conn.close()

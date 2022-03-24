@@ -32,10 +32,10 @@ If you need to download or update Python, [click here](https://www.python.org).
 
 The files to try the program are in the zip file `TRY_IT`.
 
-1. Download the repo or only the `TRY_IT` file, or clone.
-2. Save to location of your choice.
+1. Download the repo `company_data` or clone.
+2. Save to location of your choice on your machine.
 3. Extract all files from the zip folder `TRY_IT`.
-4. In your command line, navigate to the root folder in the repo.
+4. In your command line, navigate to the root folder `company_data`.
 5. Recommended: Create a virtual environment to run the program.
 6. Run the requirements:
 
@@ -52,17 +52,15 @@ The files to try the program are in the zip file `TRY_IT`.
      `python -m pip install -r requirements.txt`
 
      If you do not have Anaconda installed, make sure to enter the following commands in your command line once you've navigated to the repo folder:
-       
-     	pip install notebook
 
      	pip install pandas
 	
-7. From the root folder `TRY_IT`, navigate to the `python` folder.
+7. Navigate to the `TRY_IT/python` folder in the command line.
 8. Run the `db_auto.py` file first with command:
 
 		python db_auto.py
 
-9. Once that file is complete, remaining in the `python` folder, run the next file:
+9. Once that file is complete, remaining in the `TRY_IT/python` folder, run the next file:
 
 		python sql_pandas.py
 
@@ -72,16 +70,20 @@ You should see other folders appear: `database`, `datasets`, and `tableau`. Your
 
 You can also run unit tests to make sure your pandas methods and python function are working correctly.
 
-1. From your saved repo, navigate to `TRY_IT/test/python`.
+1. Navigate to `TRY_IT/test/python`.
 2. Run files one at a time:
 
 	`python test_pandas.py`
 
 	`python test_python.py`
 
-     `python test_sql.py`
+  `python test_sql.py`
 
-The `test_pandas.py` will log your unit test results with a timestamp in the `text/log.txt` file.
+The `test_pandas.py` will log your unit test results with a timestamp in the `TRY_IT/text/log.txt` file.
+
+### SQL
+
+The commands for SQLite are saved in the `TRY_IT/python/query.py` file. The returned lists are imported to the `sql_pandas.py` file. This is to keep the script for making the datadrames a little cleaner. You can run the `query.py` script on your own, alter the commands, write print statements into it, etc. You will also need to edit the dataframes in the `sql_pandas.py` file if you want to run that against your edited queries, though.
 
 ## Tableau
 
