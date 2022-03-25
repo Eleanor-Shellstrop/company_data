@@ -30,12 +30,12 @@ If you need to download or update Python, [click here](https://www.python.org).
 
 ### Main Program
 
-The files to try the program are in the zip file `TRY_IT`.
+The files to try the program for yourself are in the zip file `TRY_IT`.
 
 1. Download the repo `company_data` or clone.
 2. Save to location of your choice on your machine.
-3. Extract all files from the zip folder `TRY_IT`.
-4. In your command line, navigate to the root folder `company_data`.
+3. In your command line, navigate to the root folder `company_data`.
+4. Extract all files from the zip folder `TRY_IT`.
 5. Recommended: Create a virtual environment to run the program.
 6. Run the requirements:
 
@@ -73,11 +73,11 @@ You can also run unit tests to make sure your pandas methods and python function
 1. Navigate to `TRY_IT/test/python`.
 2. Run files one at a time:
 
-	`python test_pandas.py`
+	  `python test_pandas.py`
 
-	`python test_python.py`
-
-  `python test_sql.py`
+	  `python test_python.py`
+  
+    `python test_sql.py`
 
 The `test_pandas.py` will log your unit test results with a timestamp in the `TRY_IT/text/log.txt` file.
 
@@ -87,7 +87,9 @@ The commands for SQLite are saved in the `TRY_IT/python/query.py` file. The retu
 
 ## Tableau
 
-My Tableau profile has visuals for these databases. [CLICK HERE](https://public.tableau.com/app/profile/anne.ensign/viz/Company_16474575907250/Dashboard-2YearReview_1) to visit my page.
+My Tableau profile has visuals, a dashboard and a story for these databases. [CLICK HERE](https://public.tableau.com/app/profile/anne.ensign/viz/Company_16474575907250/Dashboard-2YearReview_1) to visit my page.
+
+A PDF version of the Story is located at `company_data/project/tableau/Company Story.pdf`.
 
 ## Code Louisville Requirements
 
