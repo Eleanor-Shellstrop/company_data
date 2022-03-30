@@ -37,11 +37,21 @@ The files to try the program for yourself are in the zip file `TRY_IT`.
 3. In your command line, navigate to the root folder `company_data`.
 4. Extract all files from the zip folder `TRY_IT`.
 5. Recommended: Create a virtual environment to run the program.
-6. Run the requirements:
+6. Run the requirements from the root `company_data` folder:
+
+    **Most Systems:**
+
+    `pip install -r requirements.txt`
+
+    or
+
+    `pip3 install -r requirements.txt`
+
+    If these aren't working for you, try the following:
 
      **CONDA:** 
 
-     `pip install -r requirements.txt`
+     `conda install --file requirements.txt`
 
      **Windows:**
 
