@@ -32,45 +32,31 @@ If you need to download or update Python, [click here](https://www.python.org).
 
 The files to try the program for yourself are in the zip file `TRY_IT`.
 
-1. Download the repo `company_data` or clone.
-2. Save to location of your choice on your machine.
-3. In your command line, navigate to the root folder `company_data`.
-4. Extract all files from the zip folder `TRY_IT`.
-5. Recommended: Create a virtual environment to run the program.
-6. Run the requirements from the root `company_data` folder:
+1. Download the repo `company_data` or clone and save to location of your choice on your machine.
+2. Recommended: Create a virtual environment to run the program.
+3. Run the requirements from the root `company_data` folder:
 
-    **Most Systems:**
-
-    `pip install -r requirements.txt`
-
-    or
-
-    `pip3 install -r requirements.txt`
+    **Most Systems:** `pip install -r requirements.txt` or `pip3 install -r requirements.txt`
 
     If these aren't working for you, try the following:
 
-     **CONDA:** 
+     **CONDA:** `conda install --file requirements.txt`
 
-     `conda install --file requirements.txt`
+     **Windows:** `py -m pip install -r requirements.txt`
 
-     **Windows:**
-
-     `py -m pip install -r requirements.txt`
-
-     **Unix/macOS:**
-
-     `python -m pip install -r requirements.txt`
+     **Unix/macOS:** `python -m pip install -r requirements.txt`
 
      If you do not have Anaconda installed, make sure to enter the following commands in your command line once you've navigated to the repo folder:
 
      	pip install pandas
 	
-7. Navigate to the `TRY_IT/python` folder in the command line.
-8. Run the `db_auto.py` file first with command:
+4. Extract all files from the zip folder `TRY_IT`.
+5. Navigate to the `TRY_IT/python` folder in the command line.
+6. Run the `db_auto.py` file first with command:
 
 		python db_auto.py
 
-9. Once that file is complete, remaining in the `TRY_IT/python` folder, run the next file:
+7. Once that file is complete, remaining in the `TRY_IT/python` folder, run the next file:
 
 		python sql_pandas.py
 
