@@ -11,7 +11,7 @@ This is a project for Code Louisville's Data Analysis Course 2.
 You are recently hired to a company that hasn't been keeping all their records updated. You notice a CSV with all orders for the last 2 years, which is up to date. You also notice a CSV with contact people for the companies, but there are many more companies with orders than contacts on this file. Also, a database would be a better way to store these records.
 
 1. Create a program to scan all the CSVs in one folder.
-2. Update the tables to be clean and consistant.
+2. Update the tables to be clean and consistent.
 3. Extract the data to evaluate.
 4. Create visuals for the other departments.
 5. Make sure the program can update the data every time it's run when new info is added to the CSVs.
